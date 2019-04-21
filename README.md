@@ -1,1 +1,1 @@
-chess-nn-training-log
+# Chess Neural Network experiments log
