@@ -1,0 +1,336 @@
+dataset:
+  input: D:\Temp\shuffled_4096_pos_per_chunk\*\
+  num_chunks: 5353
+  train_ratio: 0.99
+gpu: 0
+model:
+  filters: 64
+  residual_blocks: 6
+  se_ratio: 4
+  value: classical
+name: 64x6
+training:
+  batch_size: 4096
+  checkpoint_steps: 1000
+  lr_boundaries:
+  - 1000
+  lr_values:
+  - 0.4
+  - 0.4
+  max_grad_norm: 2
+  num_batch_splits: 8
+  num_test_positions: 4096
+  path: ./networks
+  policy_loss_weight: 1.0
+  q_ratio: 1
+  renorm: true
+  renorm_max_d: 0
+  renorm_max_r: 1
+  shuffle_size: 100000
+  swa: true
+  swa_max_n: 25
+  swa_steps: 25
+  test_steps: 1000
+  total_steps: 10000
+  train_avg_report_steps: 50
+  value_loss_weight: 1.0
+
+sorting 5353 chunks...[done]
+game_000000.gz - game_001065.gz
+Using 2 worker processes.
+WARNING:tensorflow:From C:\Users\alxlo\Miniconda3\lib\site-packages\tensorflow\python\data\ops\dataset_ops.py:429: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, use
+    tf.py_function, which takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+
+Using 2 worker processes.
+2019-04-26 19:49:35.053922: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX AVX2
+2019-04-26 19:49:35.320944: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1433] Found device 0 with properties:
+name: GeForce GTX 770 major: 3 minor: 0 memoryClockRate(GHz): 1.189
+pciBusID: 0000:01:00.0
+totalMemory: 2.00GiB freeMemory: 1.63GiB
+2019-04-26 19:49:35.331255: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-04-26 19:49:36.828321: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-04-26 19:49:36.833285: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0
+2019-04-26 19:49:36.836506: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N
+2019-04-26 19:49:36.843484: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 1843 MB memory) -> physical GPU (device: 0, name: GeForce GTX 770, pci bus id: 0000:01:00.0, compute capability: 3.0)
+WARNING:tensorflow:From C:\Users\alxlo\Miniconda3\lib\site-packages\tensorflow\python\framework\op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+WARNING:tensorflow:From C:\Users\alxlo\lczero-training\tf\tfprocess.py:687: batch_normalization (from tensorflow.python.layers.normalization) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.batch_normalization instead.
+WARNING:tensorflow:From C:\Users\alxlo\lczero-training\tf\tfprocess.py:154: softmax_cross_entropy_with_logits (from tensorflow.python.ops.nn_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+
+Future major versions of TensorFlow will allow gradients to flow
+into the labels input on backprop by default.
+
+See `tf.nn.softmax_cross_entropy_with_logits_v2`.
+
+
+WARNING: The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From C:\Users\alxlo\Miniconda3\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+Restoring from ./networks\64x6\64x6-1000
+WARNING:tensorflow:From C:\Users\alxlo\Miniconda3\lib\site-packages\tensorflow\python\training\saver.py:1266: checkpoint_exists (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to check for files with this prefix.
+Using 8 evaluation batches
+2019-04-26 19:50:49.693665: I tensorflow/stream_executor/dso_loader.cc:152] successfully opened CUDA library cublas64_100.dll locally
+step 1050, lr=0.4 policy=1.73013 value=0 mse=0.317425 reg=0.140495 total=1.87062 (2065.56 pos/s)
+step 1100, lr=0.4 policy=1.71713 value=0 mse=0.316986 reg=0.141044 total=1.85817 (2307.92 pos/s)
+step 1150, lr=0.4 policy=1.70819 value=0 mse=0.316911 reg=0.141519 total=1.84971 (2659.05 pos/s)
+step 1200, lr=0.4 policy=1.68891 value=0 mse=0.317139 reg=0.141982 total=1.83089 (2529.91 pos/s)
+step 1250, lr=0.4 policy=1.67883 value=0 mse=0.31647 reg=0.142404 total=1.82124 (1964.53 pos/s)
+step 1300, lr=0.4 policy=1.6649 value=0 mse=0.316993 reg=0.142855 total=1.80776 (2547.08 pos/s)
+step 1350, lr=0.4 policy=1.65036 value=0 mse=0.316693 reg=0.143153 total=1.79351 (2457.34 pos/s)
+step 1400, lr=0.4 policy=1.6437 value=0 mse=0.317512 reg=0.143401 total=1.7871 (2593.99 pos/s)
+step 1450, lr=0.4 policy=1.64179 value=0 mse=0.316689 reg=0.143655 total=1.78544 (1716.54 pos/s)
+step 1500, lr=0.4 policy=1.62759 value=0 mse=0.316568 reg=0.143874 total=1.77147 (2552.87 pos/s)
+step 1550, lr=0.4 policy=1.62298 value=0 mse=0.316019 reg=0.143981 total=1.76696 (2654.45 pos/s)
+step 1600, lr=0.4 policy=1.61576 value=0 mse=0.31769 reg=0.144153 total=1.75991 (2574.9 pos/s)
+step 1650, lr=0.4 policy=1.61202 value=0 mse=0.316781 reg=0.14425 total=1.75627 (2611.66 pos/s)
+step 1700, lr=0.4 policy=1.60876 value=0 mse=0.316349 reg=0.144374 total=1.75314 (2662.25 pos/s)
+step 1750, lr=0.4 policy=1.5929 value=0 mse=0.316339 reg=0.144558 total=1.73746 (2684.68 pos/s)
+step 1800, lr=0.4 policy=1.5784 value=0 mse=0.317782 reg=0.14468 total=1.72308 (2667.84 pos/s)
+step 1850, lr=0.4 policy=1.5812 value=0 mse=0.316847 reg=0.144742 total=1.72595 (2671.19 pos/s)
+step 1900, lr=0.4 policy=1.5766 value=0 mse=0.316674 reg=0.144847 total=1.72145 (2562.13 pos/s)
+step 1950, lr=0.4 policy=1.56571 value=0 mse=0.31605 reg=0.144883 total=1.71059 (2338.81 pos/s)
+step 2000, lr=0.4 policy=1.55718 value=0 mse=0.317148 reg=0.144949 total=1.70213 (2652.21 pos/s)
+step 2000, policy=1.6345 value=0 policy accuracy=50.3418% value accuracy=0% mse=0.31402
+swa step 2000, policy=1.67582 value=0 policy accuracy=48.584% value accuracy=0% mse=0.324115
+Model saved in file: ./networks\64x6\64x6-2000
+saved as './networks\64x6\64x6-2000' 1.56M
+Weights saved in file: ./networks\64x6\64x6-2000
+saved as './networks\64x6\64x6-swa-2000' 1.57M
+SWA Weights saved in file: ./networks\64x6\64x6-swa-2000
+step 2050, lr=0.4 policy=1.55987 value=0 mse=0.317222 reg=0.145052 total=1.70492 (2088.56 pos/s)
+step 2100, lr=0.4 policy=1.55132 value=0 mse=0.317432 reg=0.145134 total=1.69645 (2621.37 pos/s)
+step 2150, lr=0.4 policy=1.54792 value=0 mse=0.318193 reg=0.145188 total=1.69311 (2471.95 pos/s)
+step 2200, lr=0.4 policy=1.53573 value=0 mse=0.317023 reg=0.145233 total=1.68096 (2540.31 pos/s)
+step 2250, lr=0.4 policy=1.53748 value=0 mse=0.317012 reg=0.145219 total=1.6827 (2636.07 pos/s)
+step 2300, lr=0.4 policy=1.53727 value=0 mse=0.316028 reg=0.145147 total=1.68242 (2599.15 pos/s)
+step 2350, lr=0.4 policy=1.52479 value=0 mse=0.316722 reg=0.145165 total=1.66995 (2647.43 pos/s)
+step 2400, lr=0.4 policy=1.52559 value=0 mse=0.316952 reg=0.145187 total=1.67077 (2630.63 pos/s)
+step 2450, lr=0.4 policy=1.51666 value=0 mse=0.316034 reg=0.145188 total=1.66184 (2554.76 pos/s)
+step 2500, lr=0.4 policy=1.51807 value=0 mse=0.317449 reg=0.14513 total=1.6632 (2617.68 pos/s)
+step 2550, lr=0.4 policy=1.5162 value=0 mse=0.317747 reg=0.145163 total=1.66136 (2633.31 pos/s)
+step 2600, lr=0.4 policy=1.50861 value=0 mse=0.316873 reg=0.145184 total=1.65379 (2557.07 pos/s)
+step 2650, lr=0.4 policy=1.50167 value=0 mse=0.317367 reg=0.14515 total=1.64682 (2614.57 pos/s)
+step 2700, lr=0.4 policy=1.50594 value=0 mse=0.316679 reg=0.145179 total=1.65112 (2597.17 pos/s)
+step 2750, lr=0.4 policy=1.4991 value=0 mse=0.316869 reg=0.145125 total=1.64422 (2581.54 pos/s)
+step 2800, lr=0.4 policy=1.49946 value=0 mse=0.317794 reg=0.145061 total=1.64452 (2559.12 pos/s)
+step 2850, lr=0.4 policy=1.49159 value=0 mse=0.317383 reg=0.145071 total=1.63666 (2574.78 pos/s)
+step 2900, lr=0.4 policy=1.48915 value=0 mse=0.316492 reg=0.144968 total=1.63412 (2596.5 pos/s)
+step 2950, lr=0.4 policy=1.48731 value=0 mse=0.317037 reg=0.144876 total=1.63218 (2606.33 pos/s)
+step 3000, lr=0.4 policy=1.48755 value=0 mse=0.316278 reg=0.144792 total=1.63234 (2602.34 pos/s)
+step 3000, policy=1.53293 value=0 policy accuracy=51.3672% value accuracy=0% mse=0.312607
+swa step 3000, policy=1.42696 value=0 policy accuracy=56.3965% value accuracy=0% mse=0.307023
+Model saved in file: ./networks\64x6\64x6-3000
+saved as './networks\64x6\64x6-3000' 1.55M
+Weights saved in file: ./networks\64x6\64x6-3000
+saved as './networks\64x6\64x6-swa-3000' 1.55M
+SWA Weights saved in file: ./networks\64x6\64x6-swa-3000
+step 3050, lr=0.4 policy=1.48462 value=0 mse=0.317462 reg=0.14465 total=1.62927 (2019.87 pos/s)
+step 3100, lr=0.4 policy=1.54707 value=0 mse=0.237436 reg=0.145375 total=1.69245 (2570.66 pos/s)
+step 3150, lr=0.4 policy=1.53916 value=0 mse=0.0599174 reg=0.154546 total=1.6937 (2651.03 pos/s)
+step 3200, lr=0.4 policy=1.50155 value=0 mse=0.0364063 reg=0.15753 total=1.65908 (2571.91 pos/s)
+step 3250, lr=0.4 policy=1.4969 value=0 mse=0.0307765 reg=0.158143 total=1.65505 (2688.74 pos/s)
+step 3300, lr=0.4 policy=1.48682 value=0 mse=0.0273471 reg=0.159494 total=1.64631 (2631.96 pos/s)
+step 3350, lr=0.4 policy=1.48916 value=0 mse=0.0253416 reg=0.159925 total=1.64909 (2452.73 pos/s)
+step 3400, lr=0.4 policy=1.47778 value=0 mse=0.0242803 reg=0.160225 total=1.638 (2199.88 pos/s)
+step 3450, lr=0.4 policy=1.46933 value=0 mse=0.0227792 reg=0.160017 total=1.62935 (2503.24 pos/s)
+step 3500, lr=0.4 policy=1.47077 value=0 mse=0.0235268 reg=0.15975 total=1.63052 (2564.5 pos/s)
+step 3550, lr=0.4 policy=1.46452 value=0 mse=0.0222873 reg=0.159569 total=1.62409 (2580.88 pos/s)
+step 3600, lr=0.4 policy=1.46487 value=0 mse=0.0211757 reg=0.15931 total=1.62418 (2543.46 pos/s)
+step 3650, lr=0.4 policy=1.45915 value=0 mse=0.0217888 reg=0.158976 total=1.61813 (2637.67 pos/s)
+step 3700, lr=0.4 policy=1.46004 value=0 mse=0.0206856 reg=0.158782 total=1.61882 (2277.8 pos/s)
+step 3750, lr=0.4 policy=1.45501 value=0 mse=0.0209185 reg=0.158393 total=1.6134 (1767.79 pos/s)
+step 3800, lr=0.4 policy=1.45859 value=0 mse=0.0201642 reg=0.158119 total=1.61671 (2339.73 pos/s)
+step 3850, lr=0.4 policy=1.45033 value=0 mse=0.0196757 reg=0.157799 total=1.60813 (2601.58 pos/s)
+step 3900, lr=0.4 policy=1.44903 value=0 mse=0.0194495 reg=0.157472 total=1.60651 (2543.65 pos/s)
+step 3950, lr=0.4 policy=1.44184 value=0 mse=0.0188893 reg=0.157197 total=1.59903 (2532.06 pos/s)
+step 4000, lr=0.4 policy=1.45311 value=0 mse=0.0190078 reg=0.156841 total=1.60995 (2548.49 pos/s)
+step 4000, policy=1.54044 value=0 policy accuracy=50.9277% value accuracy=0% mse=0.0175475
+swa step 4000, policy=1.38466 value=0 policy accuracy=55.5664% value accuracy=0% mse=0.0482587
+Model saved in file: ./networks\64x6\64x6-4000
+saved as './networks\64x6\64x6-4000' 1.48M
+Weights saved in file: ./networks\64x6\64x6-4000
+saved as './networks\64x6\64x6-swa-4000' 1.49M
+SWA Weights saved in file: ./networks\64x6\64x6-swa-4000
+step 4050, lr=0.4 policy=1.4442 value=0 mse=0.0189855 reg=0.156469 total=1.60067 (2015.36 pos/s)
+step 4100, lr=0.4 policy=1.44894 value=0 mse=0.0189838 reg=0.156156 total=1.6051 (2577.37 pos/s)
+step 4150, lr=0.4 policy=1.44001 value=0 mse=0.0182198 reg=0.155905 total=1.59592 (2532.71 pos/s)
+step 4200, lr=0.4 policy=1.43372 value=0 mse=0.0184594 reg=0.155633 total=1.58935 (2413.31 pos/s)
+step 4250, lr=0.4 policy=1.4379 value=0 mse=0.0188337 reg=0.155375 total=1.59328 (2625.76 pos/s)
+step 4300, lr=0.4 policy=1.43189 value=0 mse=0.0179357 reg=0.155126 total=1.58702 (2649.22 pos/s)
+step 4350, lr=0.4 policy=1.43556 value=0 mse=0.0182812 reg=0.154888 total=1.59045 (2580.6 pos/s)
+step 4400, lr=0.4 policy=1.43705 value=0 mse=0.018056 reg=0.154693 total=1.59174 (2617.92 pos/s)
+step 4450, lr=0.4 policy=1.43129 value=0 mse=0.018531 reg=0.154513 total=1.5858 (2584.28 pos/s)
+step 4500, lr=0.4 policy=1.43089 value=0 mse=0.0176194 reg=0.154255 total=1.58514 (2606.27 pos/s)
+step 4550, lr=0.4 policy=1.42832 value=0 mse=0.0178673 reg=0.154026 total=1.58234 (2623.71 pos/s)
+step 4600, lr=0.4 policy=1.42846 value=0 mse=0.0172421 reg=0.153752 total=1.58222 (2656.07 pos/s)
+step 4650, lr=0.4 policy=1.42481 value=0 mse=0.0177454 reg=0.15347 total=1.57828 (2605.61 pos/s)
+step 4700, lr=0.4 policy=1.4257 value=0 mse=0.0181372 reg=0.153208 total=1.57891 (2589.67 pos/s)
+step 4750, lr=0.4 policy=1.42212 value=0 mse=0.0178383 reg=0.153064 total=1.57519 (2662.86 pos/s)
+step 4800, lr=0.4 policy=1.42442 value=0 mse=0.0172162 reg=0.152854 total=1.57727 (2604.46 pos/s)
+step 4850, lr=0.4 policy=1.41921 value=0 mse=0.0173634 reg=0.152692 total=1.5719 (2631.71 pos/s)
+step 4900, lr=0.4 policy=1.42606 value=0 mse=0.0176498 reg=0.152591 total=1.57865 (2617.88 pos/s)
+step 4950, lr=0.4 policy=1.41988 value=0 mse=0.0163683 reg=0.152484 total=1.57236 (2616.37 pos/s)
+step 5000, lr=0.4 policy=1.41514 value=0 mse=0.0166801 reg=0.152228 total=1.56737 (2643.46 pos/s)
+step 5000, policy=1.41847 value=0 policy accuracy=54.834% value accuracy=0% mse=0.0229672
+swa step 5000, policy=1.28682 value=0 policy accuracy=58.9844% value accuracy=0% mse=0.0193201
+Model saved in file: ./networks\64x6\64x6-5000
+saved as './networks\64x6\64x6-5000' 1.48M
+Weights saved in file: ./networks\64x6\64x6-5000
+saved as './networks\64x6\64x6-swa-5000' 1.48M
+SWA Weights saved in file: ./networks\64x6\64x6-swa-5000
+step 5050, lr=0.4 policy=1.41065 value=0 mse=0.0168626 reg=0.152014 total=1.56267 (1936.2 pos/s)
+step 5100, lr=0.4 policy=1.41605 value=0 mse=0.0166198 reg=0.15188 total=1.56793 (2651.97 pos/s)
+step 5150, lr=0.4 policy=1.42229 value=0 mse=0.0169487 reg=0.15174 total=1.57403 (2630.44 pos/s)
+step 5200, lr=0.4 policy=1.40411 value=0 mse=0.016642 reg=0.15161 total=1.55572 (2615.04 pos/s)
+step 5250, lr=0.4 policy=1.41614 value=0 mse=0.0176213 reg=0.151417 total=1.56755 (2626.96 pos/s)
+step 5300, lr=0.4 policy=1.40425 value=0 mse=0.0167102 reg=0.151339 total=1.55559 (2582.92 pos/s)
+step 5350, lr=0.4 policy=1.41591 value=0 mse=0.0161629 reg=0.151134 total=1.56705 (2603.8 pos/s)
+step 5400, lr=0.4 policy=1.41387 value=0 mse=0.0169749 reg=0.15096 total=1.56483 (2642.14 pos/s)
+step 5450, lr=0.4 policy=1.40637 value=0 mse=0.0162437 reg=0.150783 total=1.55715 (2603.77 pos/s)
+step 5500, lr=0.4 policy=1.41068 value=0 mse=0.0166874 reg=0.150736 total=1.56142 (2630.32 pos/s)
+step 5550, lr=0.4 policy=1.40426 value=0 mse=0.0166057 reg=0.150656 total=1.55492 (2653.23 pos/s)
+step 5600, lr=0.4 policy=1.40813 value=0 mse=0.0160054 reg=0.150468 total=1.5586 (2598.41 pos/s)
+step 5650, lr=0.4 policy=1.40861 value=0 mse=0.0164951 reg=0.150403 total=1.55902 (2551.88 pos/s)
+step 5700, lr=0.4 policy=1.40821 value=0 mse=0.0161128 reg=0.150291 total=1.5585 (2650.45 pos/s)
+step 5750, lr=0.4 policy=1.40111 value=0 mse=0.0157729 reg=0.150185 total=1.55129 (2559.6 pos/s)
+step 5800, lr=0.4 policy=1.4019 value=0 mse=0.0164981 reg=0.149963 total=1.55187 (2647.69 pos/s)
+step 5850, lr=0.4 policy=1.40392 value=0 mse=0.0158566 reg=0.149824 total=1.55375 (2545.34 pos/s)
+step 5900, lr=0.4 policy=1.39546 value=0 mse=0.0158302 reg=0.149612 total=1.54507 (2550.69 pos/s)
+step 5950, lr=0.4 policy=1.40326 value=0 mse=0.0196869 reg=0.149672 total=1.55293 (2554.94 pos/s)
+step 6000, lr=0.4 policy=1.40088 value=0 mse=0.0161464 reg=0.149986 total=1.55087 (2661.01 pos/s)
+step 6000, policy=1.4522 value=0 policy accuracy=53.5645% value accuracy=0% mse=0.0189966
+swa step 6000, policy=1.32889 value=0 policy accuracy=56.4941% value accuracy=0% mse=0.0145749
+Model saved in file: ./networks\64x6\64x6-6000
+saved as './networks\64x6\64x6-6000' 1.48M
+Weights saved in file: ./networks\64x6\64x6-6000
+saved as './networks\64x6\64x6-swa-6000' 1.48M
+SWA Weights saved in file: ./networks\64x6\64x6-swa-6000
+step 6050, lr=0.4 policy=1.39645 value=0 mse=0.0157867 reg=0.149896 total=1.54635 (1925 pos/s)
+step 6100, lr=0.4 policy=1.39931 value=0 mse=0.0158094 reg=0.14966 total=1.54897 (2662.88 pos/s)
+step 6150, lr=0.4 policy=1.3927 value=0 mse=0.0160188 reg=0.149464 total=1.54217 (2664.02 pos/s)
+step 6200, lr=0.4 policy=1.39756 value=0 mse=0.0156612 reg=0.149305 total=1.54687 (2639.22 pos/s)
+step 6250, lr=0.4 policy=1.39357 value=0 mse=0.0154297 reg=0.149176 total=1.54275 (2625.24 pos/s)
+step 6300, lr=0.4 policy=1.39181 value=0 mse=0.0160095 reg=0.148966 total=1.54078 (2642.68 pos/s)
+step 6350, lr=0.4 policy=1.38928 value=0 mse=0.0155779 reg=0.148851 total=1.53813 (2539.28 pos/s)
+step 6400, lr=0.4 policy=1.38851 value=0 mse=0.015615 reg=0.148781 total=1.5373 (2601.08 pos/s)
+step 6450, lr=0.4 policy=1.38343 value=0 mse=0.0151938 reg=0.148773 total=1.5322 (2688.84 pos/s)
+step 6500, lr=0.4 policy=1.39334 value=0 mse=0.0155699 reg=0.148651 total=1.54199 (2683.14 pos/s)
+step 6550, lr=0.4 policy=1.3842 value=0 mse=0.0152973 reg=0.148596 total=1.53279 (2650.11 pos/s)
+step 6600, lr=0.4 policy=1.38151 value=0 mse=0.0152262 reg=0.148492 total=1.53 (2671.23 pos/s)
+step 6650, lr=0.4 policy=1.38845 value=0 mse=0.0153235 reg=0.148341 total=1.53679 (2685.11 pos/s)
+step 6700, lr=0.4 policy=1.38598 value=0 mse=0.0154822 reg=0.148231 total=1.53421 (2648.74 pos/s)
+step 6750, lr=0.4 policy=1.39205 value=0 mse=0.0149714 reg=0.148175 total=1.54023 (2665.46 pos/s)
+step 6800, lr=0.4 policy=1.38428 value=0 mse=0.0152684 reg=0.148123 total=1.5324 (2662.52 pos/s)
+step 6850, lr=0.4 policy=1.38644 value=0 mse=0.0152141 reg=0.148006 total=1.53445 (2637.88 pos/s)
+step 6900, lr=0.4 policy=1.38467 value=0 mse=0.0148511 reg=0.147936 total=1.5326 (2665.39 pos/s)
+step 6950, lr=0.4 policy=1.38361 value=0 mse=0.0151025 reg=0.147779 total=1.53139 (2592.3 pos/s)
+step 7000, lr=0.4 policy=1.37641 value=0 mse=0.014884 reg=0.147622 total=1.52404 (2648.3 pos/s)
+step 7000, policy=1.36034 value=0 policy accuracy=55.957% value accuracy=0% mse=0.0351372
+swa step 7000, policy=1.29568 value=0 policy accuracy=56.7383% value accuracy=0% mse=0.0129631
+WARNING:tensorflow:From C:\Users\alxlo\Miniconda3\lib\site-packages\tensorflow\python\training\saver.py:966: remove_checkpoint (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to delete files with this prefix.
+Model saved in file: ./networks\64x6\64x6-7000
+saved as './networks\64x6\64x6-7000' 1.47M
+Weights saved in file: ./networks\64x6\64x6-7000
+saved as './networks\64x6\64x6-swa-7000' 1.47M
+SWA Weights saved in file: ./networks\64x6\64x6-swa-7000
+step 7050, lr=0.4 policy=1.3848 value=0 mse=0.014926 reg=0.147597 total=1.53239 (1867.2 pos/s)
+step 7100, lr=0.4 policy=1.37714 value=0 mse=0.015115 reg=0.147611 total=1.52475 (2675.38 pos/s)
+step 7150, lr=0.4 policy=1.38259 value=0 mse=0.0142309 reg=0.147613 total=1.5302 (2674.67 pos/s)
+step 7200, lr=0.4 policy=1.37788 value=0 mse=0.0148288 reg=0.147481 total=1.52536 (2679.88 pos/s)
+step 7250, lr=0.4 policy=1.3792 value=0 mse=0.0146651 reg=0.147371 total=1.52657 (2682.94 pos/s)
+step 7300, lr=0.4 policy=1.37463 value=0 mse=0.0150451 reg=0.147278 total=1.52191 (2590.32 pos/s)
+step 7350, lr=0.4 policy=1.38148 value=0 mse=0.014677 reg=0.147207 total=1.52868 (2593.98 pos/s)
+step 7400, lr=0.4 policy=1.38227 value=0 mse=0.0146381 reg=0.147118 total=1.52939 (2614.21 pos/s)
+step 7450, lr=0.4 policy=1.38248 value=0 mse=0.0144321 reg=0.147039 total=1.52952 (2625.41 pos/s)
+step 7500, lr=0.4 policy=1.38032 value=0 mse=0.0144953 reg=0.14698 total=1.5273 (2657.02 pos/s)
+step 7550, lr=0.4 policy=1.37238 value=0 mse=0.0145388 reg=0.146893 total=1.51927 (2636.24 pos/s)
+step 7600, lr=0.4 policy=1.37185 value=0 mse=0.0149258 reg=0.146774 total=1.51862 (2535.82 pos/s)
+step 7650, lr=0.4 policy=1.38382 value=0 mse=0.0144373 reg=0.146769 total=1.53059 (2610.26 pos/s)
+step 7700, lr=0.4 policy=1.36758 value=0 mse=0.0142992 reg=0.146686 total=1.51427 (2624.91 pos/s)
+step 7750, lr=0.4 policy=1.37651 value=0 mse=0.0147327 reg=0.146592 total=1.5231 (2604.17 pos/s)
+step 7800, lr=0.4 policy=1.36551 value=0 mse=0.0145256 reg=0.146585 total=1.51209 (2684.75 pos/s)
+step 7850, lr=0.4 policy=1.37627 value=0 mse=0.0146502 reg=0.146499 total=1.52277 (2676.21 pos/s)
+step 7900, lr=0.4 policy=1.37802 value=0 mse=0.0143456 reg=0.146392 total=1.52441 (2673.34 pos/s)
+step 7950, lr=0.4 policy=1.37661 value=0 mse=0.0178381 reg=0.146364 total=1.52297 (2646.92 pos/s)
+step 8000, lr=0.4 policy=1.39851 value=0 mse=0.0232045 reg=0.147921 total=1.54643 (2677.95 pos/s)
+step 8000, policy=1.37503 value=0 policy accuracy=56.8359% value accuracy=0% mse=0.023395
+swa step 8000, policy=1.25651 value=0 policy accuracy=59.0332% value accuracy=0% mse=0.0152018
+Model saved in file: ./networks\64x6\64x6-8000
+saved as './networks\64x6\64x6-8000' 1.46M
+Weights saved in file: ./networks\64x6\64x6-8000
+saved as './networks\64x6\64x6-swa-8000' 1.47M
+SWA Weights saved in file: ./networks\64x6\64x6-swa-8000
+step 8050, lr=0.4 policy=1.37894 value=0 mse=0.0161237 reg=0.148446 total=1.52739 (1819.23 pos/s)
+step 8100, lr=0.4 policy=1.3697 value=0 mse=0.0151449 reg=0.148282 total=1.51798 (2677.92 pos/s)
+step 8150, lr=0.4 policy=1.37795 value=0 mse=0.0147872 reg=0.148085 total=1.52604 (2691.61 pos/s)
+step 8200, lr=0.4 policy=1.36954 value=0 mse=0.0149775 reg=0.147896 total=1.51743 (2318.21 pos/s)
+step 8250, lr=0.4 policy=1.37499 value=0 mse=0.0144428 reg=0.147673 total=1.52266 (2666.91 pos/s)
+step 8300, lr=0.4 policy=1.37374 value=0 mse=0.0147392 reg=0.147519 total=1.52126 (2646.61 pos/s)
+step 8350, lr=0.4 policy=1.36725 value=0 mse=0.0144915 reg=0.147316 total=1.51457 (2683.01 pos/s)
+step 8400, lr=0.4 policy=1.37226 value=0 mse=0.0141555 reg=0.147125 total=1.51939 (2654.44 pos/s)
+step 8450, lr=0.4 policy=1.36139 value=0 mse=0.0147395 reg=0.147025 total=1.50842 (2337.55 pos/s)
+step 8500, lr=0.4 policy=1.37129 value=0 mse=0.014157 reg=0.146891 total=1.51818 (2390.9 pos/s)
+step 8550, lr=0.4 policy=1.36552 value=0 mse=0.0143301 reg=0.146699 total=1.51222 (2592.34 pos/s)
+step 8600, lr=0.4 policy=1.36648 value=0 mse=0.0144189 reg=0.146545 total=1.51302 (2611.87 pos/s)
+step 8650, lr=0.4 policy=1.36515 value=0 mse=0.0143484 reg=0.146429 total=1.51158 (2627.77 pos/s)
+step 8700, lr=0.4 policy=1.36152 value=0 mse=0.0143315 reg=0.146326 total=1.50784 (2630.97 pos/s)
+step 8750, lr=0.4 policy=1.36865 value=0 mse=0.0143494 reg=0.14615 total=1.5148 (2612.2 pos/s)
+step 8800, lr=0.4 policy=1.36245 value=0 mse=0.014505 reg=0.146056 total=1.5085 (2687.35 pos/s)
+step 8850, lr=0.4 policy=1.35636 value=0 mse=0.0141518 reg=0.145917 total=1.50228 (1989.81 pos/s)
+step 8900, lr=0.4 policy=1.3552 value=0 mse=0.0139645 reg=0.145749 total=1.50095 (2505.52 pos/s)
+step 8950, lr=0.4 policy=1.36223 value=0 mse=0.0143163 reg=0.145583 total=1.50781 (2560.43 pos/s)
+step 9000, lr=0.4 policy=1.36012 value=0 mse=0.0143255 reg=0.145572 total=1.50569 (2433.29 pos/s)
+step 9000, policy=1.45272 value=0 policy accuracy=54.248% value accuracy=0% mse=0.0250216
+swa step 9000, policy=1.29282 value=0 policy accuracy=57.5684% value accuracy=0% mse=0.0130618
+Model saved in file: ./networks\64x6\64x6-9000
+saved as './networks\64x6\64x6-9000' 1.46M
+Weights saved in file: ./networks\64x6\64x6-9000
+saved as './networks\64x6\64x6-swa-9000' 1.46M
+SWA Weights saved in file: ./networks\64x6\64x6-swa-9000
+step 9050, lr=0.4 policy=1.36751 value=0 mse=0.0141775 reg=0.145538 total=1.51305 (1679.17 pos/s)
+step 9100, lr=0.4 policy=1.35721 value=0 mse=0.0141111 reg=0.145458 total=1.50267 (2375.49 pos/s)
+step 9150, lr=0.4 policy=1.3647 value=0 mse=0.0138771 reg=0.14536 total=1.51006 (2464.5 pos/s)
+step 9200, lr=0.4 policy=1.35883 value=0 mse=0.0145028 reg=0.145229 total=1.50406 (2506.04 pos/s)
+step 9250, lr=0.4 policy=1.35982 value=0 mse=0.0142638 reg=0.145298 total=1.50512 (2434.5 pos/s)
+step 9300, lr=0.4 policy=1.35924 value=0 mse=0.0140429 reg=0.145292 total=1.50453 (2342.87 pos/s)
+step 9350, lr=0.4 policy=1.36335 value=0 mse=0.0141471 reg=0.145193 total=1.50854 (2309.64 pos/s)
+step 9400, lr=0.4 policy=1.35734 value=0 mse=0.0139184 reg=0.145104 total=1.50245 (2303.18 pos/s)
+step 9450, lr=0.4 policy=1.35806 value=0 mse=0.013983 reg=0.144986 total=1.50305 (2362.39 pos/s)
+step 9500, lr=0.4 policy=1.36563 value=0 mse=0.014161 reg=0.145045 total=1.51067 (2583.43 pos/s)
+step 9550, lr=0.4 policy=1.36455 value=0 mse=0.0137454 reg=0.145045 total=1.50959 (2395.41 pos/s)
+step 9600, lr=0.4 policy=1.35506 value=0 mse=0.0139099 reg=0.145064 total=1.50012 (2634.73 pos/s)
+step 9650, lr=0.4 policy=1.35147 value=0 mse=0.0137428 reg=0.144872 total=1.49634 (2468.07 pos/s)
+step 9700, lr=0.4 policy=1.35327 value=0 mse=0.0139461 reg=0.144786 total=1.49806 (2538.04 pos/s)
+step 9750, lr=0.4 policy=1.36251 value=0 mse=0.0139889 reg=0.144722 total=1.50724 (2144.93 pos/s)
+step 9800, lr=0.4 policy=1.35982 value=0 mse=0.0140187 reg=0.144738 total=1.50456 (2566.92 pos/s)
+step 9850, lr=0.4 policy=1.35748 value=0 mse=0.0140101 reg=0.144769 total=1.50225 (2469.24 pos/s)
+step 9900, lr=0.4 policy=1.35282 value=0 mse=0.014016 reg=0.144765 total=1.49759 (2546.82 pos/s)
+step 9950, lr=0.4 policy=1.36065 value=0 mse=0.0137879 reg=0.14481 total=1.50546 (2553.85 pos/s)
+step 10000, lr=0.4 policy=1.3581 value=0 mse=0.0138111 reg=0.144713 total=1.50282 (2576.97 pos/s)
+step 10000, policy=1.36233 value=0 policy accuracy=55.3711% value accuracy=0% mse=0.0265621
+swa step 10000, policy=1.3017 value=0 policy accuracy=58.0078% value accuracy=0% mse=0.0109872
+Model saved in file: ./networks\64x6\64x6-10000
+saved as './networks\64x6\64x6-10000' 1.45M
+Weights saved in file: ./networks\64x6\64x6-10000
+saved as './networks\64x6\64x6-swa-10000' 1.46M
+SWA Weights saved in file: ./networks\64x6\64x6-swa-10000

@@ -1,0 +1,44 @@
+%YAML 1.2
+---
+name: '64x6'                       # ideally no spaces
+gpu: 0                                 # gpu id to process on
+
+dataset: 
+  num_chunks: 5353                 # newest nof chunks to parse
+  train_ratio: 0.99                    # trainingset ratio
+  input: 'D:\Temp\shuffled_4096_pos_per_chunk\*\'
+  
+training:
+    num_test_positions: 4096
+    swa: true
+    swa_steps: 25
+    swa_max_n: 25
+    renorm: true
+    renorm_max_r: 1
+    renorm_max_d: 0
+    max_grad_norm: 2
+    batch_size: 4096                   # training batch
+    num_batch_splits: 8         
+    test_steps: 1000                   # eval test set values after this many steps
+    train_avg_report_steps: 50        # training reports its average values after this many steps.
+    total_steps: 10000                # terminate after these steps
+    #warmup_steps: 250                  # if global step is less than this, scale the current LR by ratio of global step to this value
+    checkpoint_steps: 1000         # optional frequency for checkpointing before finish
+    shuffle_size: 100000               # size of the shuffle buffer. divide num_chunks by 10?
+    lr_values:                         # list of learning rates
+        - 0.4
+        - 0.4
+        
+    lr_boundaries:                     # list of boundaries
+        - 1000
+    policy_loss_weight: 1.0            # weight of policy loss
+    value_loss_weight: 1.0             # weight of value loss
+    q_ratio: 1
+    path: './networks'    # network storage dir
+
+model:
+  filters: 64                       #[64,256]
+  residual_blocks: 6                #[6,20]
+  se_ratio: 4                       #[4,8]
+  value: 'classical'
+...
