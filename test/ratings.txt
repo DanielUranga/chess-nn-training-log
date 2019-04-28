@@ -1,0 +1,50 @@
+
+File: ../chess-nn-training-log/test/27042019-64x6sVSSF1.pgn
+Loading data (2000 games x dot): 
+
+|
+
+Total games                 102
+ - White wins                47
+ - Draws                     17
+ - Black wins                36
+ - Truncated/Discarded        2
+Unique head to head        5.88%
+Reference rating      2753.0 (set to "Stockfish 1")
+
+Loose Anchors = none
+Relative Anchors = none
+
+
+players with no games = 0
+players with all wins = 0
+players w/ all losses = 0
+
+Convergence rating calculation (cycle #1)
+
+phase iteration    deviation    resolution
+  0       3     31.816136261      38.51924
+  1       1     31.816136261      34.97442
+  2       2     29.189952706      29.08148
+  3       3     23.685004592      22.67662
+  4       7     17.112343243      17.13256
+  5      10     10.456983367      10.53807
+  6      16      4.599561350       4.66354
+  7      41      0.379428942       0.38690
+  8      83      0.000000097       0.00000
+done
+
+White Advantage = 0.0
+Draw Rate (eq.) = 50.0 %
+
+
+   # PLAYER                                  :  RATING  POINTS  PLAYED   (%)
+   1 lc0 - 23042019kb1-64x6-Q05-SE2-35000    :  2822.9    48.0      68    71
+   2 Stockfish 1                             :  2753.0    37.5      66    57
+   3 lc0 - 23042019kb1-64x6-Q05-60000        :  2564.9    14.5      66    22
+
+White advantage = 0.00
+Draw rate (equal opponents) = 50.00 %
+
+
+done!
