@@ -1,0 +1,2 @@
+Weights here: https://www.dropbox.com/s/2zqqxrvo09nl1k4/64x6-swa-10000?dl=0
+Training log here: https://www.dropbox.com/s/rthgk94q31tdlq1/training_log_9.11.txt?dl=0
